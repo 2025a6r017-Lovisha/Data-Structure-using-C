@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main(){
+    int num, octal=0,place=1;
+    printf("enter number :");
+    scanf("%d",&num);
+    int num1 = num;
+    while(num !=0){
+        int rem = num % 8;
+        octal = octal + rem * place;
+        num = num/8;
+        place = place * 10;
+    }
+    printf("octal of %d is %d",num1,octal);
+    return 0;
+}
