@@ -1,0 +1,91 @@
+#include<stdio.h>
+#define MAX 100
+int list[MAX];
+int n = 0;
+void InsertInBeg(int value){
+    if(n == MAX){
+        printf("List is Full !!!");
+        return;
+    }
+int i;
+for(int i = n-1; i>=0; i--){
+    list[i+1] = list[i];
+}
+list[i] = value;
+n++;
+printf("Element Inserted in Beginning !!!!\n");
+}
+void displayList(){
+    if(n == 0){
+        printf("List is empty !!\n");
+        return;
+    }
+    for(int i=0; i<n; i++){
+        printf("%d\t", list[i]);
+    }
+    printf("\n");
+}
+void InsertAtEnd(int value){
+    if(n == MAX){
+        printf("List is Full!!!");
+    }
+    list[n++]=value;
+    printf("Element inserted!!");
+}
+
+int main(){
+    while(1){+
+        printf("1. Insert In Beginning\n");
+        printf("2. Insert At End\n");
+        printf("3. Insert At Specified Position\n");
+        printf("4. Delete From Beginning\n");
+        printf("5. Delete From End\n");
+        printf("6. Delete From Specified Position\n");
+        printf("7. Display List\n");
+        printf("8. Search Element In List\n");
+        printf("9. Sort Element of List\n");
+        printf("10. Update List Element\n");
+        printf("11. Exit\n");
+        int choice,data;
+        printf("Enter choice :");
+        scanf("%d",&choice);
+        switch(choice){
+            case 1:
+            printf("Enter data: ");
+            scanf("%d",&data);
+            InsertInBeg(data);
+            break;
+            case 2:
+             printf("Enter data: ");
+            scanf("%d",&data);
+            InsertAtEnd(data);
+            break;
+            case 3:
+            break;
+            case 4:
+            break;
+            case 5:
+            break;
+            case 6:
+            break;
+            case 7:
+            displayList();
+            break;
+            case 8:
+            break;
+            case 9:
+            break;
+            case 10:
+            break;
+            default:
+            printf("Invalid choice !!!!!\n");
+        }
+        
+
+    }
+
+    
+
+    return 0;
+
+}
