@@ -1,0 +1,133 @@
+#include <stdio.h>
+#include <string.h>
+
+#define SIZE 100
+
+int stack1[SIZE], stack2[SIZE];
+int top1 = -1, top2 = -1;
+
+void push(int s, int x)
+{
+    if (s == 1)
+    {
+        if (top1 == SIZE - 1)
+            printf("Overflow\n");
+        else
+        {
+            top1++;
+            stack1[top1] = x;
+        }
+    }
+    else if (s == 2)
+    {
+        if (top2 == SIZE - 1)
+            printf("Overflow\n");
+        else
+        {
+            top2++;
+            stack2[top2] = x;
+        }
+    }
+}
+
+
+void pop(int s)
+{
+    if (s == 1)
+    {
+        if (top1 == -1)
+            printf("Underflow\n");
+        else
+            top1--;
+    }
+    else if (s == 2)
+    {
+        if (top2 == -1)
+            printf("Underflow\n");
+        else
+            top2--;
+    }
+}
+void peek(int s)
+{
+    if (s == 1)
+    {
+        if (top1 == -1)
+            printf("Underflow\n");
+        else
+            printf("%d\n", stack1[top1]);
+    }
+    else if (s == 2)
+    {
+        if (top2 == -1)
+            printf("Underflow\n");
+        else
+            printf("%d\n", stack2[top2]);
+    }
+}
+
+void display(int s)
+{
+    int i;
+
+    if (s == 1)
+    {
+        if (top1 == -1)
+            printf("Underflow\n");
+        else
+        {
+            for (i = top1; i >= 0; i--)
+                printf("%d ", stack1[i]);
+            printf("\n");
+        }
+    }
+    else if (s == 2)
+    {
+        if (top2 == -1)
+            printf("Underflow\n");
+        else
+        {
+            for (i = top2; i >= 0; i--)
+                printf("%d ", stack2[i]);
+            printf("\n");
+        }
+    }
+}
+
+int main()
+{
+    char op[10];
+    int s, x;
+
+    while (1)
+    {
+        scanf("%s", op);
+
+        if (strcmp(op, "PUSH") == 0)
+        {
+            scanf("%d %d", &s, &x);
+            push(s, x);
+        }
+        else if (strcmp(op, "POP") == 0)
+        {
+            scanf("%d", &s);
+            pop(s);
+        }
+        else if (strcmp(op, "PEEK") == 0)
+        {
+            scanf("%d", &s);
+            peek(s);
+        }
+        else if (strcmp(op, "DISPLAY") == 0)
+        {
+            scanf("%d", &s);
+            display(s);
+        }
+        else
+        {
+            break;   
+        }
+    }
+
+    return 0;
+}
