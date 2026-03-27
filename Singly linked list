@@ -82,7 +82,7 @@ void insertAtAnyPos(int data,int pos){
     }
 }
 
-void deleteFromBeg(){
+void deletefrombeg(){
     if(head == NULL)
         printf("List is empty!!\n");
     else{
@@ -90,8 +90,61 @@ void deleteFromBeg(){
         printf("Node deleted!!\n");
     }
 }
+void deletefromend(){
+    if(head == NULL)
+    printf("List is Empty!!!\n");
+    else if(head->next == NULL ){
+        head = NULL;
 
-int main(){
+    }
+    else{
+        struct node* temp = head;
+        while(temp->next != NULL){
+            temp=temp->next;
+        }
+        temp->next = NULL;
+        printf("Node deleted!!!\n");
+    }
+}
+void deletefromanypos(int pos){
+    if(head == NULL)
+    printf("List is Empty!!!\n");
+    else if(pos==0) 
+      deletefrombeg();
+      else{
+        struct node* temp = head;
+        int i=0;
+        while(temp!=NULL){
+            if(i==pos-1)
+            break;
+            temp=temp->next;
+            i++;
+        }
+        if(temp==NULL || temp->next == NULL){
+            printf("Invalid position!!!\n");
+        }
+        else{
+            temp->next = temp->next->next;
+            printf("Node deleted !!!\n");
+        }
+      }
+    }
+    void search(int value){
+        if(head == NULL)
+        printf("List is Empty !!!\n");
+        else{
+            struct node* temp=head;
+            while(temp->data == value){
+                if(temp->data == value){
+                printf("Found!!!\n");
+                return;
+            }
+            temp = temp->next;
+        }
+        printf("Not Found!!!\n");
+    }
+}
+      int main(){
     while(1){
         printf("1. Insert in beginning\n");
         printf("2. Insert at end\n");
@@ -124,18 +177,25 @@ int main(){
                 insertAtAnyPos(data,pos);
                 break;
             case 4:
-                deleteFromBeg();
+                deletefrombeg();
                 break; 
             case 5:
+            deletefromend();
                
                 break;
             case 6:
+            printf("Enter pos");
+            scanf("%d",&pos);
+            deletefromanypos(pos);
                
                 break;
             case 7:
                displaylist();
                 break;
             case 8:
+            printf("Enter element:");
+            scanf("%d",&data);
+            search(data);
                
                 break;
             case 9:
@@ -149,3 +209,8 @@ int main(){
     }
     return 0;
 }
+
+
+    
+ 
+    
