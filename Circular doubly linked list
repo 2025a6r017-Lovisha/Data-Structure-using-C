@@ -78,17 +78,66 @@ void InsertNodeAtAnyPos(int data, int pos){
 
 
 void deleteNodeFromBeg(){
-   
+    if(head == NULL)
+    printf("List is Empty !!!\n");
+    else if(head->next == head){
+        head = NULL;
+        printf("Node deleted !!!\n");
 
-} 
+    }
+    
+    else{
+        struct Node* temp = head;
+        while(temp->next != head){
+            temp = temp->next;
+            printf("Node deleted !!!\n");
+        }
+    }
+}
 
 
 void deleteFromEnd(){
+    if(head == NULL)
+    printf("List is Empty !!!\n");
+    else if(head->next == head){
+        head = NULL;
+        printf("Node deleted !!!\n");
+
+    }
     
-} 
+    else{
+        struct Node* temp = head;
+        while(temp->next != head){
+            temp = temp->next;
+            printf("Node deleted !!!\n");
+        }
+        temp->next = head;
+        printf("Node deleted !!!\n");
+    }
+}
+    
 
 
 void deleteFromAnyPos(int pos){
+    if(head==NULL)
+    printf("List is empty !!!\n");
+    else if(pos == 0)
+    deleteNodeFromBeg();
+    else{
+        struct Node* temp = head;
+        int i=0;
+        while(i !=pos-1 && temp->next != head){
+            i++;
+            temp = temp->next;
+        }
+        if(temp->next == head)
+        printf("Invalid Position!!!\n");
+        else{
+            temp->next = temp->next->next;
+            printf("Node deleted!!!\n");
+        }
+    }
+
     
 }
 
@@ -186,3 +235,4 @@ int main(){
     }
     return 0;
 }
+        
