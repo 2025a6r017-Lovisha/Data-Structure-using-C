@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    int n;
+    scanf("%d",&n);
+    int tree[n];
+    // Inserting N elements in BT using level order Traversal
+    for(int i=0; i<n; i++){
+        scanf("%d",&tree[i]);
+    }
+    // Now using the same level order traversal technique we can find the min value node in BT
+    int min = tree[0];
+    for(int i=1; i<n; i++){
+        if(tree[i] < min && tree[i] != -1)
+            min = tree[i];
+    }
+    printf("%d",min);
+    return 0;
+}
