@@ -1,4 +1,4 @@
-//Binary Tree Implementation using linked list
+//Binary Search Tree
 #include<stdio.h>
 #include<stdlib.h>
 #define MAX 100
